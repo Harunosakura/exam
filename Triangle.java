@@ -13,7 +13,7 @@
 public class Triangle {
     
            
-     static int triangle(int a, int b, int c) {
+    static int triangle(int a, int b, int c) {
          if(isPositive(a, b, c))
               if(isEqualEdges(a, b, c))
                   return 1;
@@ -23,22 +23,17 @@ public class Triangle {
 
     }
     private static boolean isPositive(int a, int b, int c) {
-         if(a>0 && b>0 && c>0)
-                return true;
-         return false;
-        
+        return a > 0 && b > 0 && c > 0;
+
     }
 
     private static boolean isTriangle(int a, int b, int c) {
-         if (a + b > c && a + c > b && c+b>a) 
-                return true;
-         return false;
-        
+        return a + b > c && a + c > b && c + b > a;
+
     }
 
     private static boolean isEqualEdges(int a, int b, int c) {
-         if (a == b && b == c) 
-            return true;
-          return false;
+        return a == b && b == c;
     }
+
 }
