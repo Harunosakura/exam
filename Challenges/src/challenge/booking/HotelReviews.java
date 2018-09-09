@@ -1,3 +1,5 @@
+package challenge.booking;
+
 import java.util.stream.Stream;
 import java.util.Map;
 import java.util.HashMap;

@@ -1,3 +1,5 @@
+package challenge.booking;
+
 
 import java.awt.*;
 import javax.swing.*;

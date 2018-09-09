@@ -1,3 +1,5 @@
+package challenge.booking;
+
 
 import java.io.*;
 import static java.lang.Math.ceil;
