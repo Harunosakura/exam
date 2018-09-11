@@ -39,6 +39,8 @@ public class MinimumDistanceBTWTwoPolygon {
     static double distanceBTWPoints(List<Integer> p, List<Integer> q) {
         int xDiff = q.get(0) - p.get(0);
         int yDiff = q.get(1) - p.get(1);
+//        if(xDiff==0 || yDiff==0)
+//            return 0;
         System.out.println(+p.get(0) + "  " + q.get(0) + "  " + p.get(1) + "  " + q.get(1) + " x:" + xDiff + "  y: " + yDiff + " p: " + ((xDiff * xDiff) + (yDiff * yDiff)) + " VAl= " + Math.sqrt((xDiff * xDiff) + (yDiff * yDiff)));
 //        System.out.println("p.get(0): "+p.get(0) +"  q.get(0) :"+q.get(0) +"  p.get(1):  "+p.get(1) +"  q.get(1): "+q.get(1) +" xDiff: " + xDiff + "  yDiff: " + yDiff + " plus: "+((xDiff * xDiff) + (yDiff * yDiff))+ " VAl= " + Math.sqrt((xDiff * xDiff) + (yDiff * yDiff)));
         return Math.sqrt((xDiff * xDiff) + (yDiff * yDiff));
