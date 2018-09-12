@@ -5,51 +5,135 @@
  */
 package algorithms.implementation;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  *
  * @author Nesrin
  */
 public class MatrixLayerRotation {
+        static void matrixRotation(List<List<Integer>> matrix, int r) {
+        List<List<Integer>> tempMatrix = new ArrayList<>();
+        for (int i = r; i > 0; i--) {
+            if(i==r)
+                tempMatrix=    singleRotation(matrix);
+            else
+                tempMatrix = singleRotation(tempMatrix);
+        }
+//          System.out.println("------------Befor");
+//                for (int s = 0; s < matrix.size(); s++) {
+//                    for (int t = 0; t < matrix.get(s).size(); t++) {
+//                        System.out.print(matrix.get(s).get(t) + "  ");
+//                    }
+//                    System.out.println("");
+//                }
+//                System.out.println("------ After");
+                for (int s = 0; s < tempMatrix.size(); s++) {
+                    for (int t = 0; t < tempMatrix.get(s).size(); t++) {
+                        System.out.print(tempMatrix.get(s).get(t) + " ");
+                    }
+                    System.out.println("");
+                }
+    }
+
+    static List<List<Integer>> singleRotation(List<List<Integer>> matrix) {
+        int depth = 0;
+        int[][] arTemp = new int[matrix.size()][matrix.get(0).size()];
+
+        if (matrix.size() % 2 == 0) {
+            depth = matrix.size() / 2;
+        } else {
+            depth = matrix.get(0).size() / 2;
+        }
+        for (int d = 0; d < depth; d++) {
+            //System.out.println(d);
+            for (int j = d; j < matrix.size() - d; j++) {
+                for (int i = d; i < matrix.get(0).size() - d; i++) {
+                    //System.out.println("-- " + matrix.get(j).get(i));
+                    if (j == d) {
+                        if (i == d) {
+                            arTemp[j + 1][i] = matrix.get(j).get(i);
+                        } else {
+                            arTemp[j][i - 1] = matrix.get(j).get(i);
+                        }
+                    } else if (j == matrix.size() - 1 - d) {
+                        if (i == matrix.get(0).size() - 1 - d) {
+                            arTemp[j - 1][i] = matrix.get(j).get(i);
+                        } else {
+                            arTemp[j][i + 1] = matrix.get(j).get(i);
+                        }
+                    } else if (i == d && j > d) {
+                        arTemp[j + 1][i] = matrix.get(j).get(i);
+                    } else if (i == matrix.get(0).size() - 1 - d) {
+                        arTemp[j - 1][i] = matrix.get(j).get(i);
+                    }
+                }
+//                System.out.println("------------Befor");
+//                for (int s = 0; s < matrix.size(); s++) {
+//                    for (int t = 0; t < matrix.get(s).size(); t++) {
+//                        System.out.print(matrix.get(s).get(t) + "  ");
+//                    }
+//                    System.out.println("");
+//                }
+//                System.out.println("------ After");
+//                for (int s = 0; s < arTemp.length; s++) {
+//                    for (int t = 0; t < arTemp[0].length; t++) {
+//                        System.out.print(arTemp[s][t] + "  ");
+//                    }
+//                    System.out.println("");
+//                }
+            }
+
+        }
+        List<List<Integer>> tempMatxrix = new ArrayList<>();
+            List<Integer> temp = new ArrayList<>();
+        for (int s = 0; s < arTemp.length; s++) {
+          temp = new ArrayList<>();
+            for (int t = 0; t < arTemp[0].length; t++) {
+                temp.add(arTemp[s][t]);
+            }
+            tempMatxrix.add(temp);
+        }
+        return tempMatxrix;
+    }
+
 
     public static void main(String[] args) {
-        int[][] ar = {{1, 2, 3, 111}, {4, 5, 6, 12, 222}, {7, 8, 9, 333}, {10, 11, 12, 444}};
-        System.out.println(ar[0][0] +"  "+ar[0][1] +"  "+ar[0][2] );
-        System.out.println(ar[1][0] +"  "+ar[1][1] +"  "+ar[1][2] );
-        System.out.println(ar[2][0] +"  "+ar[2][1] +"  "+ar[2][2] );
-        System.out.println(ar[3][0] +" "+ar[3][1] +" "+ar[3][2] );
+        //      int[][] ar = {{1, 2, 3, 111}, {4, 5, 6, 12, 222}, {7, 8, 9, 333}, {20,30, 40, 50}, {60, 70, 80, 90}, {10, 11, 12, 444}};
+//        int[][] ar = new int[6][6];
+//        int ind = 10;
+//        for (int i = 0; i < ar.length; i++) {
+//            for (int j = 0; j < ar[0].length; j++) {
+//                ar[i][j] = ind;
+//                ind++;
+//                System.out.print(ar[i][j] + "  ");
+//            }
+//            System.out.println("");
+//        }
 
-        System.out.println("rows: "+ar.length+" cols: "+ar[0].length);
-         int[][] arTemp = new int[ar.length][ar[0].length];
-        int x=0;
-        boolean rowsAreEven = false;
-        if(ar.length%2==0){
-            x = ar.length/2;
-            rowsAreEven = true;
+//        System.out.println("rows: " + ar.length + " cols: " + ar[0].length);
+        List<List<Integer>> matrix = new ArrayList<>();
+        for (int i = 0; i < 6; i++) {
+            List<Integer> cur = new ArrayList<>();
+            cur.add(i * 6);
+            cur.add(i * 6 + 1);
+            cur.add(i * 6 + 2);
+            cur.add(i * 6 + 3);
+            cur.add(i * 6 + 4);
+            cur.add(i * 6 + 5);
+            matrix.add(cur);
+
         }
-        else
-             x = ar[0].length/2;
-        for (int depth = 0; depth < 1; depth++) {
-            for (int j = (rowsAreEven?depth:0); j < ar.length; j++) {
-                for (int i = (!rowsAreEven?depth:0); i < ar[0].length; i++) {
-                 if(rowsAreEven)
-                    if( j<=x)
-                        if(i==0)
-                            arTemp[j+1][i] = ar[j][i] ;
-                        else
-                            arTemp[j][i-1] = ar[j][i] ;
-                    else
-                        if(i==ar[0].length-1)
-                             arTemp[j-1][i] = ar[j][i] ;
-                        else
-                             arTemp[j][i+1] = ar[j][i] ;
-                }
-       System.out.println(arTemp[0][0] +"  "+arTemp[0][1] +"  "+arTemp[0][2] );
-        System.out.println(arTemp[1][0] +"  "+arTemp[1][1] +"  "+arTemp[1][2] );
-        System.out.println(arTemp[2][0] +"  "+arTemp[2][1] +"  "+arTemp[2][2] );
-        System.out.println(arTemp[3][0] +" "+arTemp[3][1] +" "+arTemp[3][2] );
-                
-            }
-        }
- 
+           List<Integer> cur = new ArrayList<>();
+            cur.add(100);
+            cur.add(101);
+            cur.add(102);
+            cur.add(103);
+            cur.add(104);
+            cur.add(105);
+            matrix.add(cur);
+        //System.out.println(matrix);
+        matrixRotation(matrix, 1);
     }
 }
