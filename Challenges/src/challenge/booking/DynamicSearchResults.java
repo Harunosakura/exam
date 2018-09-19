@@ -13,8 +13,8 @@ public class DynamicSearchResults {
     // Complete the solve function below.
     static int solve(List<Integer> list1, List<Integer> list2) {
         int movements = 0;
-        List<Integer> filter1 = list1.stream().filter(s -> s >= 0 && s<=100000000 ).collect(Collectors.toList());
-        List<Integer> filter2 = list2.stream().filter(s -> s >= 0&& s<=100000000 ).collect(Collectors.toList());
+        List<Integer> filter1 = list1;//list1.stream().filter(s -> s >= 0 && s<=100000000 ).collect(Collectors.toList());
+        List<Integer> filter2 = list2;//list2.stream().filter(s -> s >= 0&& s<=100000000 ).collect(Collectors.toList());
 
         int list1size = filter1.size();
         int list2size = filter2.size();
@@ -42,18 +42,18 @@ public class DynamicSearchResults {
 //        System.out.println(keyList2);
 //
 //        System.out.println("3- " + LocalDateTime.now().toString());
-        int previousIndex = -1;
-        for (Map.Entry<Integer, Integer> entry : keyList2.entrySet()) {
-//            System.out.println("entry.getValue()  : " + entry.getValue() + " previousIndex: " + previousIndex);
-
-            if (previousIndex == -1) {
-                previousIndex = entry.getValue();
-            } else if (entry.getValue() < previousIndex) {
-                movements++;
-            }
-
-            previousIndex = entry.getValue();
-        }
+//        int previousIndex = -1;
+//        for (Map.Entry<Integer, Integer> entry : keyList2.entrySet()) {
+////            System.out.println("entry.getValue()  : " + entry.getValue() + " previousIndex: " + previousIndex);
+//
+//            if (previousIndex == -1) {
+//                previousIndex = entry.getValue();
+//            } else if (entry.getValue() < previousIndex) {
+//                movements++;
+//            }
+//
+//            previousIndex = entry.getValue();
+//        }
 //        System.out.println("Trans : " + movements);
 
         if (keyList2.size() < list1size) {
@@ -69,6 +69,27 @@ public class DynamicSearchResults {
 //
 //        System.out.println("movements = " + movements);
         return movements;
+    }
+
+    public static int increasingSubsequence(int[] seq) {
+        int[] L = new int[seq.length];
+        L[0] = 1;
+        for (int i = 1; i < L.length; i++) {
+            int maxn = 0;
+            for (int j = 0; j < i; j++) {
+                if (seq[j] < seq[i] && L[j] > maxn) {
+                    maxn = L[j];
+                }
+            }
+            L[i] = maxn + 1;
+        }
+        int maxi = 0;
+        for (int i = 0; i < L.length; i++) {
+            if (L[i] > maxi) {
+                maxi = L[i];
+            }
+        }
+        return (maxi);
     }
 
     public static void main(String[] args) throws IOException {

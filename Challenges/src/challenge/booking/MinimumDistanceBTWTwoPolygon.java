@@ -37,8 +37,8 @@ public class MinimumDistanceBTWTwoPolygon {
     }
 
     static double distanceBTWPoints(List<Integer> p, List<Integer> q) {
-        int xDiff = q.get(0) - p.get(0);
-        int yDiff = q.get(1) - p.get(1);
+        double xDiff = q.get(0) - p.get(0);
+        double yDiff = q.get(1) - p.get(1);
 //        if(xDiff==0 || yDiff==0)
 //            return 0;
         System.out.println(+p.get(0) + "  " + q.get(0) + "  " + p.get(1) + "  " + q.get(1) + " x:" + xDiff + "  y: " + yDiff + " p: " + ((xDiff * xDiff) + (yDiff * yDiff)) + " VAl= " + Math.sqrt((xDiff * xDiff) + (yDiff * yDiff)));
@@ -55,7 +55,7 @@ public class MinimumDistanceBTWTwoPolygon {
     }
 
     public static void main(String[] args) throws IOException {
-        BufferedReader bufferedReader = new BufferedReader(new FileReader(new File("C:\\java\\len6.txt")));
+        BufferedReader bufferedReader = new BufferedReader(new FileReader(new File("C:\\java\\len55.txt")));
         BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("C:\\java\\result1.txt"));
         String[] nm = bufferedReader.readLine().replaceAll("\\s+$", "").split(" ");
 

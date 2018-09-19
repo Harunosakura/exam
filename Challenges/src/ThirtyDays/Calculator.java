@@ -1,5 +1,6 @@
 package ThirtyDays;
 
+import java.text.DecimalFormat;
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.Queue;
@@ -113,9 +114,9 @@ class Calculator implements AdvancedArithmetic {
             if (queueA.isEmpty() && queueB.isEmpty()) {
                 break;
             }
-            System.out.println(i+ "A"+queueA);
-            System.out.println(i+ "B"+queueB);
-            System.out.println(i+ "R"+sb.toString());
+            System.out.println(i + "A" + queueA);
+            System.out.println(i + "B" + queueB);
+            System.out.println(i + "R" + sb.toString());
             if (qA == 0 && !queueA.isEmpty()) {
                 qA = queueA.remove();
             }
@@ -134,7 +135,7 @@ class Calculator implements AdvancedArithmetic {
                     continue;
 
                 } else {
-                    if (a.substring(aLength-queueA.size()-1).compareTo(b.substring(bLength-queueB.size()-1)) <= 0) {
+                    if (a.substring(aLength - queueA.size() - 1).compareTo(b.substring(bLength - queueB.size() - 1)) <= 0) {
                         sb.append(qA);
                         qA = 0;
                     } else {
@@ -165,14 +166,58 @@ class Calculator implements AdvancedArithmetic {
         return sb.toString();
     }
 
+    static int diagonalDifference() {
+        int[][] arr = {{11, 2, 4}, {4, 5, 6}, {10, 8, -12}};
+        int sumRight = 0;
+        int sumLeft = 0;
+
+        for (int i = 0; i < arr.length; i++) {
+            sumRight += arr[i][i];
+        }
+        for (int i = arr.length - 1, j = 0; i >= 0; i--, j++) {
+            sumLeft += arr[j][i];
+        }
+        return Math.abs(sumRight - sumLeft);
+    }
+
+    static void staircase(int n) {
+        String str = "#";
+        for (int i = 0; i < n; i++) {
+            System.out.printf("%" + (n + 1) + "s", str + "\n");
+            str = str + "#";
+        }
+    }
+
     public static void main(String[] args) {
-       morganAndString("YZYYZYZYY", "ZYYZYZYY");
-        int compareTo = "YZYYZYZYY".compareTo("ZYYZYZYY");
-        System.out.println(compareTo);
-        //YZYYZYYZYZYYZYZYY
-        //YZYYZZYZYZYY
-        //YZYYZYZYYZYYZYZYY
-        System.out.println("YZYYZYZYY".substring("YZYYZYZYY".length()-1-3));
-               // .compareTo("ZYYZYZYY");
+        staircase(6);
+       // diagonalDifference();
+        // Complete the diagonalDifference function below.
+
+//        int[] arr = {-4, 3, -9, 0, 4, 1 };
+//        DecimalFormat df = new DecimalFormat("#.000000");
+//         double ps=0;
+//        double ng=0;
+//        double zero =0;
+//        for(int i=0; i<arr.length; i++)
+//            if(arr[i]>0)
+//                ps++;
+//            else if(arr[i]<0)
+//                ng++;
+//            else
+//                zero++;
+//        System.out.println(df.format(ps/arr.length));
+//        System.out.println(df.format(ng/arr.length));
+//        System.out.println(df.format(zero/arr.length));
+//        
+//        
+//       morganAndString("Y Z YYZY ZYY", 
+//                                        "ZYYZYZYY");
+//        int compareTo = "YZYYZYZYY".compareTo("ZYYZYZYY");
+//        System.out.println(compareTo);
+//        //YZYYZYYZYZYYZYZYY
+//        //YZYYZZYZYZYY
+//        //YZYYZYZYYZYYZYZYY
+//        System.out.println("YZYYZYZYY".substring("YZYYZYZYY".length()-1-3));
+//               // .compareTo("ZYYZYZYY");
     }
 }

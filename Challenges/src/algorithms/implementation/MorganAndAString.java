@@ -22,6 +22,7 @@ public class MorganAndAString {
 
     public static void main(String[] args) throws IOException {
 //        morganAndString("JACK", "DANIEL");
+        morganAndString("YRYVSH", "YRYVSN");
         morganAndString("YZYYZYZYY", "ZYYZYZYY");
 //        morganAndString("ABACABA", "ABACABA");
 //        BufferedReader bufferedReader = new BufferedReader(new FileReader(new File("C:\\java\\morgan.txt")));
@@ -70,14 +71,18 @@ public class MorganAndAString {
         // System.out.println(LocalDateTime.now().toString());
 
         while (aIndex< aLength && toCharArrayA[aIndex] <= toCharArrayB[bIndex]  ) {
-            if (aIndex>=8190 && aIndex<8193) {
-                System.out.println(aIndex);
-            }
+//            if (aIndex>=8190 && aIndex<8193) {
+//                System.out.println(aIndex);
+//            }
+System.out.println("1- "+sb.toString());
             sb.append(toCharArrayA[aIndex++]);
+System.out.println("2- "+sb.toString());
             
         }
         while (aIndex< aLength && bIndex< bLength && toCharArrayA[aIndex] > toCharArrayB[bIndex]  ) {
+System.out.println("3- "+sb.toString());
             sb.append(toCharArrayB[bIndex++]);
+System.out.println("4- "+sb.toString());
         }
         for (int i = 0; i < maxlength && aIndex< aLength &&bIndex< bLength; i++ ) {
             ////System.out.println(i+" "+sb.toString());
@@ -127,18 +132,18 @@ public class MorganAndAString {
 
             }
             //System.out.println(LocalDateTime.now().toString());
+            System.out.println(sb.toString());
 
             if (aIndex == aLength || bIndex == bLength) {
                 break;
             }
-            //System.out.println(sb.toString());
         }
         if (aIndex < aLength) {
             sb.append(a.substring(aIndex));
         } else {
             sb.append(b.substring(bIndex));
         }
-//        System.out.println(sb.toString());
+        System.out.println(sb.toString());
         //System.out.println("YZYYZYYZYZYYZYZYY");
         System.out.println("YZYYZYYZYZYYZYZYY".equals(sb.toString()));
         //System.out.println(LocalDateTime.now().toString());
