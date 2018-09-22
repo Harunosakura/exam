@@ -1,6 +1,5 @@
 package challenge.booking;
 
-
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -43,9 +42,11 @@ public class MinimumDistanceBTWTwoPolygon {
 //            return 0;
         System.out.println(+p.get(0) + "  " + q.get(0) + "  " + p.get(1) + "  " + q.get(1) + " x:" + xDiff + "  y: " + yDiff + " p: " + ((xDiff * xDiff) + (yDiff * yDiff)) + " VAl= " + Math.sqrt((xDiff * xDiff) + (yDiff * yDiff)));
 //        System.out.println("p.get(0): "+p.get(0) +"  q.get(0) :"+q.get(0) +"  p.get(1):  "+p.get(1) +"  q.get(1): "+q.get(1) +" xDiff: " + xDiff + "  yDiff: " + yDiff + " plus: "+((xDiff * xDiff) + (yDiff * yDiff))+ " VAl= " + Math.sqrt((xDiff * xDiff) + (yDiff * yDiff)));
-        return Math.sqrt((xDiff * xDiff) + (yDiff * yDiff));
+        System.out.println("--" + Math.hypot(xDiff, yDiff));
+        System.out.println("--" + Math.sqrt((xDiff * xDiff) + (yDiff * yDiff)));
+        return Math.hypot(xDiff, yDiff);
     }
-    
+
     private static boolean confirmPositiveArea(List<List<Integer>> p) {
         if (p.stream().anyMatch((list) -> (list.get(0) > -1 || list.get(1) > -1))) {
             return true;
@@ -90,7 +91,6 @@ public class MinimumDistanceBTWTwoPolygon {
                 throw new RuntimeException(ex);
             }
         });
-
 
         double result = solve(p, q);
         bufferedWriter.write(String.valueOf(result));
