@@ -11,6 +11,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
@@ -67,23 +68,28 @@ public class CouplingPassions {
                   List<String> list2 = null;
                   Set<String> common = null;
                   int max = 0;
-                  Map<List<Location>, Integer> cities = new HashMap<>();
+                  Map<List<Location>, Integer> cities = new LinkedHashMap<>();
                   for (int i = 0; i < availablePassion.size() - 1; i++) {
-                           common = new HashSet<>();
-                        
+                           //common = new HashSet<>();
+
                            for (int j = i + 1; j < availablePassion.size(); j++) {
-                                       list1 = new ArrayList<>(guestsPassion);
-                           list2 = new ArrayList<>(guestsPassion);
+                                    list1 = new ArrayList<>(guestsPassion);
+                                    list2 = new ArrayList<>(guestsPassion);
+                                    common = new HashSet<>();
                                     list1.retainAll(availablePassion.get(i));
                                     list2.retainAll(availablePassion.get(j));
+                                    //System.out.println(common);
                                     common.addAll(list1);
                                     common.addAll(list2);
                                     if (common.size() > max)
                                              max = common.size();
-
+                                    //System.out.println(max);
+                                    //System.out.println(common);
                                     List<Location> c = new ArrayList<>();
                                     c.add(locations.get(i));
                                     c.add(locations.get(j));
+                                    //System.out.println(locations.get(i).getLocName() + " " + locations.get(j).getLocName());
+//                                    //System.out.println(locations.get(j));
                                     cities.put(c, common.size());
 //                                    }//else if()
                            }
@@ -113,7 +119,7 @@ public class CouplingPassions {
          private static List<Location> findNearstLocations(List<List<Location>> maxPassionLocations) {
                   List<Double> distances = new ArrayList<>();
                   double min = Double.MAX_VALUE;
-                  for (int i = 1; i < maxPassionLocations.size(); i++) {
+                  for (int i = 0; i < maxPassionLocations.size(); i++) {
                            List<Location> locs = maxPassionLocations.get(i);
                            Double x = distanceBetween(locs.get(0), locs.get(1));
                            if (x < min)
@@ -134,9 +140,11 @@ public class CouplingPassions {
                   double point1_long_in_radians = degree2radians(point1.getLon());
                   double point2_long_in_radians = degree2radians(point2.getLon());
 
-                  return acos(sin(point1_lat_in_radians) * sin(point2_lat_in_radians)
+                  return acos(
+                          sin(point1_lat_in_radians) * sin(point2_lat_in_radians)
                           + cos(point1_lat_in_radians) * cos(point2_lat_in_radians)
-                          * cos(point2_long_in_radians - point1_long_in_radians)) * EARTH_RADIUS;
+                          * cos(point2_long_in_radians - point1_long_in_radians)
+                  ) * EARTH_RADIUS;
          }
 }
 
