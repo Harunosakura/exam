@@ -5,10 +5,11 @@
  */
 package ThirtyDays;
 
-import java.time.Instant;
 import java.time.LocalDateTime;
 import java.time.Month;
 import java.time.ZoneOffset;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -26,5 +27,15 @@ public class DatesImplementation {
 //                                  ZoneOffset.UTC);
 //                LocalDateTime  endDate =  LocalDateTime.ofInstant(Instant.ofEpochSecond(unixTimestamp),
 //                                  ZoneOffset.UTC);
+
+         List<String> s = new ArrayList<>();
+         s.add("aaa");
+         s.add("www");
+         s.add("ggg");
+                  System.out.println(s.subList(0, 0));
+                  System.out.println(s.subList(0, 1));
+                  System.out.println(s.subList(0, 2));
+                  System.out.println(s.subList(0, 3));
+                  System.out.println(s.subList(0, 4));
          }
 }
