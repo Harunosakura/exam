@@ -189,35 +189,13 @@ class Calculator implements AdvancedArithmetic {
     }
 
     public static void main(String[] args) {
-        staircase(6);
-       // diagonalDifference();
-        // Complete the diagonalDifference function below.
+             int n=0;
+             while(n<=800){
+             System.out.println(2<<n);
+             n++;
+             }
+             staircase(6);
 
-//        int[] arr = {-4, 3, -9, 0, 4, 1 };
-//        DecimalFormat df = new DecimalFormat("#.000000");
-//         double ps=0;
-//        double ng=0;
-//        double zero =0;
-//        for(int i=0; i<arr.length; i++)
-//            if(arr[i]>0)
-//                ps++;
-//            else if(arr[i]<0)
-//                ng++;
-//            else
-//                zero++;
-//        System.out.println(df.format(ps/arr.length));
-//        System.out.println(df.format(ng/arr.length));
-//        System.out.println(df.format(zero/arr.length));
-//        
-//        
-//       morganAndString("Y Z YYZY ZYY", 
-//                                        "ZYYZYZYY");
-//        int compareTo = "YZYYZYZYY".compareTo("ZYYZYZYY");
-//        System.out.println(compareTo);
-//        //YZYYZYYZYZYYZYZYY
-//        //YZYYZZYZYZYY
-//        //YZYYZYZYYZYYZYZYY
-//        System.out.println("YZYYZYZYY".substring("YZYYZYZYY".length()-1-3));
-//               // .compareTo("ZYYZYZYY");
     }
+    
 }
