@@ -1,7 +1,5 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+https://www.hackerrank.com/contests/booking-womenintech-2017/challenges/highlight-landmarks
  */
 package challenge.booking.woman1;
 
