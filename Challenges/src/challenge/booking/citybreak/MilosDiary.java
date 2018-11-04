@@ -78,11 +78,4 @@ public class MilosDiary {
 
          }
 
-         private static boolean numberSetCheck(Map<Integer, Integer> numberSet, int nextNumber, int lastNumber) {
-                  // Check that all numbers between nextNumber and lastNumber are filled in to the set
-                  for (int i = nextNumber + 1; i < lastNumber; i++)
-                           if (numberSet.get(i) == null)
-                                    return false;
-                  return true;
-         }
 }
