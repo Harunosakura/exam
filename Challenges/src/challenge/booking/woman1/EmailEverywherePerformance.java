@@ -1,13 +1,12 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+https://www.hackerrank.com/contests/booking-womenintech-2017/challenges/emails-emails-everywhere/problem
  */
 package challenge.booking.woman1;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 import java.util.PriorityQueue;
 import java.util.Queue;
-import java.util.Scanner;
 
 /**
  *
@@ -15,29 +14,31 @@ import java.util.Scanner;
  */
 public class EmailEverywherePerformance {
 
-         public static void main(String[] args) {
+         public static void main(String[] args) throws Exception {
 
-                  Scanner s = new Scanner(System.in);
+//                  Scanner s = new Scanner(System.in);
+                  BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+
+//                  BufferedReader bufferedReader = new BufferedReader(new FileReader(new File("C:\\java\\e0.txt")));
                   Queue<ComparableQueue> pq = new PriorityQueue();
-                  int cnt = s.nextInt();
-                  s.nextLine();
+                  int cnt = Integer.parseInt(bufferedReader.readLine().replaceAll("\\s+$", ""));
+                  //s.nextLine();
                   for (int i = 0; i < cnt; i++) {
-                           String[] record = s.nextLine().split(" ");
+                           String[] record = bufferedReader.readLine().replaceAll("\\s+$", "").split(" ");
                            if (record.length == 3)
                                     pq.add(new ComparableQueue(Integer.parseInt(record[2]), record[1], i));
                            else if (pq.isEmpty())
                                     System.out.println(-1);
-                           else {
-                                    System.out.println(pq.poll().getEmail());
-//                                    pq.remove();
-                           }
+                           else
+                                    System.out.println(pq.poll().getEmail()); //                                    pq.remove();
                   }
 
          }
 }
 
 class ComparableQueue implements Comparable<ComparableQueue> {
-  private int priority;
+
+         private int priority;
          private String email;
          private int index;
 
@@ -46,6 +47,7 @@ class ComparableQueue implements Comparable<ComparableQueue> {
                   this.email = email;
                   this.index = index;
          }
+
          @Override
          public int compareTo(ComparableQueue co) {
                   int coPriority = co.getPriority();
@@ -57,6 +59,7 @@ class ComparableQueue implements Comparable<ComparableQueue> {
                            return 1;
                   return 0;
          }
+
          public int getPriority() {
                   return priority;
          }
@@ -72,8 +75,6 @@ class ComparableQueue implements Comparable<ComparableQueue> {
          public void setEmail(String email) {
                   this.email = email;
          }
-
-       
 
          public int getIndex() {
                   return index;
