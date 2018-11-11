@@ -1,7 +1,7 @@
 /*
 https://www.hackerrank.com/contests/booking-womenintech-2017/challenges/highlight-landmarks
  */
-package challenge.booking.woman1;
+package challenge.booking.woman2016;
 
 import java.util.Scanner;
 
