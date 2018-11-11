@@ -1,4 +1,4 @@
-package challenge.booking;
+package challenge.booking.exam;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
