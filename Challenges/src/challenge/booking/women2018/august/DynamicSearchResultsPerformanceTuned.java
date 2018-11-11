@@ -1,7 +1,7 @@
 /*
  * https://www.hackerrank.com/contests/booking-womenintech/challenges/morph-search-results
  */
-package challenge.booking.women2017;
+package challenge.booking.women2018.august;
 
 import java.io.*;
 import java.time.LocalDateTime;

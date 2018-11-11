@@ -1,7 +1,7 @@
 /*
 * https://www.hackerrank.com/contests/booking-womenintech/challenges/distance-between-two-polygons
  */
-package challenge.booking.women2017;
+package challenge.booking.women2018.august;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;

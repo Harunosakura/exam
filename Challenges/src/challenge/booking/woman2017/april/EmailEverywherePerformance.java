@@ -1,7 +1,7 @@
 /*
 https://www.hackerrank.com/contests/booking-womenintech-2017/challenges/emails-emails-everywhere/problem
  */
-package challenge.booking.woman2016;
+package challenge.booking.woman2017.april;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
