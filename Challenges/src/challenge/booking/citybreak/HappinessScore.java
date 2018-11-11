@@ -73,11 +73,9 @@ public class HappinessScore {
                                              uniqueSums.add(sum);
                                     }
                   }
-                  for (Iterator<Integer> iterator = uniqueSums.iterator(); iterator.hasNext();){
-                           int x = iterator.next();
-//                           System.out.println(x);
+                  for (int x : uniqueSums)
+                           //                           System.out.println(x);
                            if (isPrime(x))
                                     counter++;
-                  }
          }
 }
